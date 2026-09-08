@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laundry Wallah</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo-container">
+                    <div class="logo-icon">🧺</div>
+                    <h1>Laundry Wallah</h1>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#service">Service</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <a class="login-link" href="login.html">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero" id="home">
+            <div class="hero-text">
+                <div class="hero-badge">✨ Trusted Laundry Care • Fast & Reliable</div>
+
+                <h2>Fresh Clothes.<br><span>Fresh Confidence.</span></h2>
+
+                <p class="hero-description">
+                    Your laundry deserves more than a wash. Get professional cleaning,
+                    careful handling, and fresh clothes delivered with care — so you
+                    can spend less time doing laundry and more time living.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#service" class="hero-btn">Book a Service <span>→</span></a>
+                    <a href="#about" class="hero-btn secondary-btn">Explore Our Services</a>
+                </div>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span>⚡</span>
+                        <div><strong>Quick Turnaround</strong><small>Save your time</small></div>
+                    </div>
+                    <div class="hero-feature">
+                        <span>🧼</span>
+                        <div><strong>Deep Clean</strong><small>Fresh & hygienic</small></div>
+                    </div>
+                    <div class="hero-feature">
+                        <span>🚚</span>
+                        <div><strong>Reliable Service</strong><small>On-time delivery</small></div>
+                    </div>
+                </div>
+
+                <div class="hero-trust">⭐ Loved by 240+ happy customers</div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-image-glow"></div>
+                <img src="laundry.jpg" alt="">
+
+                <div class="hero-floating-card">
+                    <div class="floating-icon">🧺</div>
+                    <div><strong>Fresh & Clean</strong>
+                        <p>Ready to wear!</p>
+                    </div>
+                </div>
+
+                <div class="hero-experience-card">
+                    <strong>2+</strong>
+                    <span>Years of<br>Experience</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Promise -->
+        <section class="promise-section">
+            <div class="promise-card">
+                <span>🫧</span>
+                <div><strong>Gentle Care</strong>
+                    <p>For every fabric</p>
+                </div>
+            </div>
+            <div class="promise-card">
+                <span>💧</span>
+                <div><strong>Fresh Cleaning</strong>
+                    <p>Professional results</p>
+                </div>
+            </div>
+            <div class="promise-card">
+                <span>💰</span>
+                <div><strong>Fair Pricing</strong>
+                    <p>Quality without the extra cost</p>
+                </div>
+            </div>
+            <div class="promise-card">
+                <span>❤️</span>
+                <div><strong>Customer First</strong>
+                    <p>Service you can trust</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats-section">
+            <div class="section-eyebrow">OUR NUMBERS</div>
+            <h2>Quality Service, Happy Customers</h2>
+            <p class="section-intro">We keep laundry simple, dependable, and convenient.</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>15+</h3>
+                    <p>Laundry Services</p>
+                </div>
+                <div class="stat-box">
+                    <h3>240+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-box">
+                    <h3>2+ Yrs</h3>
+                    <p>Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-section" id="service">
+            <div class="section-eyebrow">LAUNDRY MADE EASY</div>
+            <h2>Choose Your Service & Let Us Handle the Rest</h2>
+            <p class="section-intro">Select one or more services, add them to your cart, and book in just a few simple
+                steps.</p>
+            <div class="booking-container">
+                <div class="booking-left">
+                    <h3>Available Services</h3>
+                    <div class="service-list">
+                        <div class="service-item" data-service="wash-fold" data-name="Wash & Fold" data-price="100">
+                            <div class="service-info">
+                                <h4>Wash & Fold</h4>
+                                <p class="service-price">Rs 100 per kg</p>
+                            </div>
+                            <div class="service-actions">
+                                <button type="button" class="add-btn">Add Items</button>
+                                <button type="button" class="remove-btn" disabled>Remove Now</button>
+                            </div>
+                        </div>
+
+                        <div class="service-item" data-service="wash-iron" data-name="Wash & Iron" data-price="250">
+                            <div class="service-info">
+                                <h4>Wash & Iron</h4>
+                                <p class="service-price">Rs 250 per kg</p>
+                            </div>
+                            <div class="service-actions">
+                                <button type="button" class="add-btn">Add Items</button>
+                                <button type="button" class="remove-btn" disabled>Remove Now</button>
+                            </div>
+                        </div>
+
+                        <div class="service-item" data-service="dry-cleaning" data-name="Dry Cleaning" data-price="150">
+                            <div class="service-info">
+                                <h4>Dry Cleaning</h4>
+                                <p class="service-price">Rs 150 per item</p>
+                            </div>
+                            <div class="service-actions">
+                                <button type="button" class="add-btn">Add Items</button>
+                                <button type="button" class="remove-btn" disabled>Remove Now</button>
+                            </div>
+                        </div>
+
+                        <div class="service-item" data-service="carpet-cleaning" data-name="Carpet Cleaning"
+                            data-price="50">
+                            <div class="service-info">
+                                <h4>Carpet Cleaning</h4>
+                                <p class="service-price">Rs 50 per sq ft</p>
+                            </div>
+                            <div class="service-actions">
+                                <button type="button" class="add-btn">Add Items</button>
+                                <button type="button" class="remove-btn" disabled>Remove Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="cart-hint">💡 Add items to the cart</p>
+                </div>
+
+                <div class="booking-right">
+                    <div class="cart-section">
+                        <h3>Your Cart</h3>
+                        <div class="cart-items-container">
+                            <div id="cart-items" class="cart-display">No items added yet.</div>
+                        </div>
+                        <div class="cart-total">
+                            <p>Total Amount: Rs <span id="total-amount">0</span></p>
+                        </div>
+                    </div>
+
+                    <form id="booking-form" class="booking-form">
+                        <h3>Book Now</h3>
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <p id="form-message" class="form-message"></p>
+                        <button type="submit" class="book-now-btn">Book Now</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <section class="process-section">
+            <div class="section-eyebrow">HOW IT WORKS</div>
+            <h2>From Laundry Basket to Fresh Clothes</h2>
+            <p class="section-intro">A simple three-step experience designed around your convenience.</p>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">🧺</div>
+                    <h3>Choose a Service</h3>
+                    <p>Pick washing, ironing, dry cleaning, or carpet cleaning from our service list.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">📋</div>
+                    <h3>Book in Minutes</h3>
+                    <p>Add your services to the cart and enter your contact details to confirm your booking.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">✨</div>
+                    <h3>Enjoy Freshness</h3>
+                    <p>We take care of the cleaning so you can get back to the things that matter most.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quality-section" id="about">
+            <h2>Why Choose Us</h2>
+            <p class="quality-intro">Our laundry services are distinguished by premium quality, quick support, timely
+                delivery, and affordable prices. Discover what makes us the preferred choice for your laundry needs.</p>
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">✨</div>
+                    <h3>Premium Services</h3>
+                    <p>We provide top-tier laundry services with careful handling and attention to every detail.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">⚡</div>
+                    <h3>Quick Support</h3>
+                    <p>Our dedicated support team responds quickly to all your inquiries and issues.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">🚚</div>
+                    <h3>Timely Delivery</h3>
+                    <p>We guarantee on-time delivery of your cleaned and ironed clothes.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">💰</div>
+                    <h3>Affordable Prices</h3>
+                    <p>Quality laundry services at prices that fit your budget.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <section class="testimonial-section">
+        <div class="section-eyebrow">CUSTOMER LOVE</div>
+        <h2>Clean Clothes. Happy Customers.</h2>
+        <p class="section-intro">A little care goes a long way. That's the Laundry Wallah promise.</p>
+
+        <div class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p>Professional service, simple booking, and clothes that feel fresh and clean. Laundry day just became much
+                easier!</p>
+            <div class="testimonial-person">
+                <div class="avatar">😊</div>
+                <div><strong>Happy Laundry Wallah Customer</strong><span> Verified customer</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div>
+            <div class="section-eyebrow">READY WHEN YOU ARE</div>
+            <h2>Give Your Clothes the Care They Deserve.</h2>
+            <p>Book your laundry service today and make laundry one less thing to worry about.</p>
+        </div>
+        <a href="#service" class="hero-btn">Book a Service →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">🧺</div>
+                        <h3>Laundry Wallah</h3>
+                    </div>
+                    <p>Your trusted partner for premium laundry services. Clean clothes, happy life!</p>
+                </div>
+
+                <div class="footer-section footer-links">
+                    <h4>Important Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#service">Services</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-about">
+                    <h4>About Us</h4>
+                    <p>Laundry Wallah has been providing top-quality laundry services for over 10 years. We are
+                        committed to delivering excellence in every service.</p>
+                    <a href="#about" class="about-link">Learn More</a>
+                </div>
+
+                <div class="footer-section footer-contact" id="contact">
+                    <h4>Contact Us</h4>
+                    <p>📧 <a href="mailto:info@laundrywallah.com">info@laundrywallah.com</a></p>
+                    <p>📞 <a href="tel:+91 9874563210">+91 9874563210</a></p>
+                    <p>📍 123 Laundry Street, Faridabad, Haryana </p>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Laundry Wallah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        emailjs.init("xwcL8QD3qnHnIyb8k");
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

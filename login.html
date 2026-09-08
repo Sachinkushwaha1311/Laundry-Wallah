@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Wallah - Login & Signup</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-left">
+            <div class="auth-left-content">
+                <div class="logo">
+                    🧺 <span>Laundry Wallah</span>
+                </div>
+                <h1>Fresh Clothes.<br>
+                    Happy Life.
+                </h1>
+                <p>
+                    Book your laundry service easily
+                    and enjoy fresh, clean clothes
+                    delivered to your doorstep.
+                </p>
+
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🚚</div>
+                        <div>
+                            <strong>Doorstep Pickup</strong>
+                            <small>We collect your clothes</small>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✨</div>
+                        <div>
+                            <strong>Quality Cleaning</strong>
+                            <small>Fresh and clean clothes</small>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <div>
+                            <strong>Quick Service</strong>
+                            <small>Fast laundry turnaround</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-box">
+                <div class="mobile-logo">
+                    🧺 Laundry Wallah
+                </div>
+
+                <div class="auth-form active" id="loginForm">
+                    <h2>Welcome Back!</h2>
+                    <p class="form-description">
+                        Login to manage your laundry services.
+                    </p>
+                    <form id="login">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="password-row">
+                                <label>Password</label>
+                                <a href="#">Forgot Password?</a>
+                            </div>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="main-btn">Login</button>
+                        <p class="message" id="loginMessage"></p>
+                    </form>
+
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+                    <button class="google-btn" type="button">
+                        <span>G</span>
+                        Continue with Google
+                    </button>
+                    <p class="switch-text">
+                        Don't have an account?
+                        <button class="switch-btn" onclick="showSignup()">
+                            Create Account
+                        </button>
+                    </p>
+                    <a href="index.html" class="back-home">
+                        ← Back to Home
+                    </a>
+                </div>
+
+                <div class="auth-form" id="signupForm">
+                    <h2>Create Account</h2>
+                    <p class="form-description">
+                        Create your Laundry Wallah account.
+                    </p>
+                    <form id="signup">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="signupPassword" placeholder="Create a password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+
+                        <div class="terms">
+                            <label>
+                                <input type="checkbox" id="terms" required>
+                                I agree to the
+                                <a href="#">Terms & Conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="main-btn">
+                            Create Account
+                        </button>
+                        <p class="message" id="signupMessage"></p>
+                    </form>
+
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <button class="google-btn" type="button">
+                        <span>G</span>
+                        Sign up with Google
+                    </button>
+
+                    <p class="switch-text">
+                        Already have an account?
+                        <button class="switch-btn" onclick="showLogin()">
+                            Login
+                        </button>
+                    </p>
+
+                    <a href="index.html" class="back-home">
+                        ← Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
