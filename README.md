@@ -1,44 +1,58 @@
 # Laundry Wallah
 
-Laundry Wallah is a responsive front-end laundry service website that allows users to browse services, add them to a cart, and submit a booking request. The project is designed for a simple, fast, and user-friendly laundry booking experience.
+Laundry Wallah is a small laundry booking website made with HTML, CSS, and JavaScript. A user can choose laundry services, add them to a cart, and send a booking request.
 
-## Features
+I made this project to practice front-end development and form handling.
 
-- Responsive landing page with hero section and service overview
-- Laundry service catalog with multiple service options
-- Add/remove service items from the cart
-- Automatic total amount calculation for selected services
-- Booking form with validation for name, email, and phone number
-- Email-based booking confirmation using EmailJS
-- Local storage support to save the latest booking details
-- Login and signup page with form validation
-- Simple, modern UI tailored for a laundry business website
+## What the website can do
 
-## Technologies Used
+- Show the laundry services and prices
+- Add the same service more than one time
+- Remove one service item at a time
+- Show the cart total
+- Check the name, email, and phone number before booking
+- Send booking details using EmailJS
+- Save the latest booking in the browser using LocalStorage
+- Let a user subscribe to the newsletter
+- Show a simple login and signup demo page
 
-- HTML5 for page structure
-- CSS3 for styling and layout
-- JavaScript for interactive features and form logic
-- EmailJS for sending booking notifications
-- LocalStorage for storing booking information in the browser
-- Front-end-only architecture with no backend required
+## Tools used
 
-## Project Structure
+- HTML for the page content
+- CSS for the design
+- JavaScript for the buttons, cart, and forms
+- EmailJS for sending booking and newsletter emails
+- LocalStorage for saving the last booking
 
-- `index.html` – main landing page with service booking section
-- `style.css` – overall styling for the website
-- `script.js` – cart logic, form validation, and booking behavior
-- `login.html` – login and signup page
-- `login.css` – styling for the login page
-- `login.js` – login and signup form validation
-- `image/` – project images and assets
+## Main files
 
-## How to Run
+- `index.html` - Main website page
+- `style.css` - Main website styles
+- `script.js` - Cart, booking form, and newsletter code
+- `login.html` - Login and signup page
+- `login.css` - Login page styles
+- `login.js` - Login and signup form code
+- `laundry.jpg` - Image used on the home page
 
-1. Open `index.html` in your browser to view the main website.
-2. Open `login.html` in your browser to test the login/signup page.
-3. No installation or backend setup is required for this front-end project.
+## How to run the project
 
-## Notes
+1. Open the `e:\laundry` folder in VS Code.
+2. Open `index.html` with the Live Server extension, or open it directly in a browser.
+3. Add services to the cart and test the booking form.
+4. Open `login.html` to test the login and signup forms.
 
-This project is built as a lightweight client-side application for showcasing and simulating laundry service bookings. It is ideal for front-end practice, UI design demos, or small business website prototypes.
+No npm install or build command is needed for this project.
+
+## EmailJS setup
+
+The booking form and newsletter form use EmailJS. To send real emails, the EmailJS details must be configured correctly.
+
+1. Create an EmailJS account and email service.
+2. Create a booking email template and a newsletter template.
+3. Put the EmailJS public key in `index.html`.
+4. Put the service ID and template ID in `script.js`.
+5. Make sure the templates use the required values, such as `customer_name`, `customer_email`, `customer_phone`, `services`, `total_amount`, `booking_date`, and `newsletter_email`.
+
+## Important note
+
+This is a front-end practice project. The login and signup page does not create real user accounts yet. EmailJS is the external service used for sending emails, and there is no personal backend server in this project.

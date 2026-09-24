@@ -1,5 +1,36 @@
 ﻿let cart = [];
 
+function getServiceCount(name) {
+    let count = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function updateRemoveButtons() {
+    const serviceItems = document.querySelectorAll(".service-item");
+
+    for (let i = 0; i < serviceItems.length; i++) {
+        const serviceItem = serviceItems[i];
+        const serviceName = serviceItem.getAttribute("data-name");
+        const removeButton = serviceItem.querySelector(".remove-btn");
+        const count = getServiceCount(serviceName);
+
+        if (count === 0) {
+            removeButton.disabled = true;
+            removeButton.textContent = "Remove Now";
+        } else {
+            removeButton.disabled = false;
+            removeButton.textContent = "Remove 1 (" + count + ")";
+        }
+    }
+}
+
 function updateCart() {
     const cartBox = document.getElementById("cart-items");
     const totalBox = document.getElementById("total-amount");
@@ -16,6 +47,8 @@ function updateCart() {
         cartBox.innerHTML = "<ul>" + list + "</ul>";
         totalBox.textContent = total;
     }
+
+    updateRemoveButtons();
 }
 
 function addService(name, price) {
@@ -40,7 +73,7 @@ function removeService(name) {
 const bookingForm = document.getElementById("booking-form");
 
 if (bookingForm) {
-    bookingForm.addEventListener("submit", function (e) {
+    bookingForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const name = document.getElementById("name").value.trim();
@@ -51,8 +84,23 @@ if (bookingForm) {
         msg.textContent = "";
         msg.className = "form-message";
 
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneDigits = phone.replace(/\D/g, "");
+
         if (name === "" || email === "" || phone === "") {
             msg.textContent = "Please fill all fields.";
+            msg.className = "form-message error";
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+            msg.textContent = "Please enter a valid email address.";
+            msg.className = "form-message error";
+            return;
+        }
+
+        if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+            msg.textContent = "Please enter a valid phone number.";
             msg.className = "form-message error";
             return;
         }
@@ -91,40 +139,33 @@ if (bookingForm) {
         bookButton.textContent = "Sending...";
         bookButton.disabled = true;
 
-        emailjs.send(
-            "service_qsgzpuf",
-            "template_wpecnne",
-            {
-                customer_name: name,
-                customer_email: email,
-                customer_phone: phone,
-                services: cartItems,
-                total_amount: total,
-                booking_date: new Date().toLocaleString()
-            }
-        )
+        try {
+            await emailjs.send(
+                "service_qsgzpuf",
+                "template_wpecnne",
+                {
+                    customer_name: name,
+                    customer_email: email,
+                    customer_phone: phone,
+                    services: cartItems,
+                    total_amount: total,
+                    booking_date: new Date().toLocaleString()
+                }
+            );
 
-            .then(function (response) {
-                console.log("Email sent successfully!", response);
+            msg.textContent = "Thank you for booking the service. We will get back to you soon!";
+            msg.className = "form-message success";
+            bookingForm.reset();
+            cart = [];
+            updateCart();
+        } catch (error) {
+            console.log("EmailJS Error:", error);
+            msg.textContent = "Booking failed. Please try again.";
+            msg.className = "form-message error";
+        }
 
-                msg.textContent = "Thank you For Booking the Service We will get back to you soon!";
-                msg.className = "form-message success";
-                bookingForm.reset();
-                cart = [];
-                updateCart();
-                bookButton.textContent = "Book Now";
-                bookButton.disabled = false;
-            })
-
-            .catch(function (error) {
-
-                console.log("EmailJS Error:", error);
-
-                msg.textContent = "Booking failed. Please try again.";
-                msg.className = "form-message error";
-                bookButton.textContent = "Book Now";
-                bookButton.disabled = false;
-            });
+        bookButton.textContent = "Book Now";
+        bookButton.disabled = false;
     });
 }
 
@@ -138,8 +179,6 @@ for (let i = 0; i < addButtons.length; i++) {
 
         addService(serviceName, servicePrice);
 
-        const removeBtn = serviceItem.querySelector(".remove-btn");
-        removeBtn.disabled = false;
     });
 }
 
@@ -150,6 +189,48 @@ for (let i = 0; i < removeButtons.length; i++) {
         const serviceName = serviceItem.getAttribute("data-name");
 
         removeService(serviceName);
+    });
+}
+
+const newsletterForm = document.getElementById("newsletter-form");
+
+if (newsletterForm) {
+    newsletterForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const emailInput = document.getElementById("newsletter-email");
+        const message = document.getElementById("newsletter-message");
+        const submitButton = newsletterForm.querySelector("button");
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            message.textContent = "Please enter a valid email address.";
+            message.className = "form-message error";
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Joining...";
+
+        try {
+            await emailjs.send("service_qsgzpuf", "template_wpecnne", {
+                newsletter_email: email,
+                customer_email: email,
+                message: "New newsletter subscriber"
+            });
+
+                message.textContent = "Thanks for subscribing!";
+                message.className = "form-message success";
+                newsletterForm.reset();
+        } catch (error) {
+            console.log("Newsletter EmailJS Error:", error);
+            message.textContent = "Subscription failed. Please try again.";
+            message.className = "form-message error";
+        }
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Subscribe";
     });
 }
 

@@ -553,6 +553,30 @@ input {
   border-color: #1597e5;
 }
 
+.form-message {
+  display: none;
+  border-radius: 5px;
+  margin: 8px 0;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-message.success,
+.form-message.error {
+  display: block;
+}
+
+.form-message.success {
+  background-color: #d9f7df;
+  color: #176b2c;
+}
+
+.form-message.error {
+  background-color: #ffe2e2;
+  color: #a12626;
+}
+
 .book-now-btn {
   width: 100%;
   padding: 13px;
@@ -765,6 +789,76 @@ input {
 .cta-section .hero-btn {
   background-color: white;
   color: #087fc9;
+}
+
+.newsletter-section {
+  width: 92%;
+  max-width: 900px;
+  margin: 0 auto 70px;
+  padding: 35px;
+  text-align: center;
+  background-color: #087fc9;
+  color: white;
+  border-radius: 18px;
+}
+
+.newsletter-section h2 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.newsletter-section > p {
+  color: white;
+  font-size: 13px;
+}
+
+.newsletter-section .newsletter-form {
+  max-width: 560px;
+  margin: 18px auto 0;
+  justify-content: center;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  width: 200px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #cfe6f5;
+  border-radius: 8px;
+}
+
+.newsletter-form button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background-color: #1597e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.newsletter-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .footer {
